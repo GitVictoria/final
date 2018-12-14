@@ -2,7 +2,7 @@ import React from 'react';
 import axios from './axios';
 import {BrowserRouter, Route} from 'react-router-dom';
 import Profile from './profile';
-import Weather from './weather';
+import Todo from './todo';
 
 
 
@@ -18,6 +18,8 @@ export default class App extends React.Component {
     componentDidMount() {
         axios.get('/user').then(({ data }) => {
             this.setState(data.rows[0]);
+        }).catch(err => {
+            console.log(err);
         });
     }
 
@@ -29,9 +31,10 @@ export default class App extends React.Component {
                         <Route
                             exact path = '/profile'
                             component = {Profile}/>
+
                         <Route
-                            exact path = '/weather'
-                            component = {Weather}/>
+                            exact path = '/todo'
+                            component = {Todo}/>
                     </div>
 
                 </BrowserRouter>
