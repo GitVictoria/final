@@ -1,0 +1,47 @@
+/* --------WELCOME  -------- */
+
+.welcome-container-wrapper {
+    border: 2px solid red;
+    height: 900px;
+    width: 100%;
+    display: inline-flex;
+
+}
+
+.welcome-container {
+    border: 2px solid pink;
+    width: 50%;
+    height: 900px;
+
+
+}
+
+
+
+
+/* -------- END OF WELCOME  -------- */
+
+
+
+
+
+
+/* --------LOGIN------- */
+
+.login-container {
+    border: 2px solid black;
+    width: 50%;
+    height: 900px;
+
+}
+
+
+
+/* --------END OF LOGIN------- */
+
+/* --------TYPING CAROUSEL------- */
+.typing-carousel {
+
+}
+
+/* --------END OF TYPING CAROUSEL------- */

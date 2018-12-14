@@ -1,13 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Welcome from './welcome';
+import Registration from './registration';
+import App from './app';
+
+
+let component;
+
+if (location.pathname == '/') {
+    component = <Welcome/>; }
+else if (location.pathname == '/registration') {
+    component = <Registration/>; }
+else {
+    component = (
+        <App />);
+}
+
+
+
 
 ReactDOM.render(
-    <HelloWorld />,
+    component,
     document.querySelector('main')
 );
-
-function HelloWorld() {
-    return (
-        <div>Hello, World!</div>
-    );
-}
