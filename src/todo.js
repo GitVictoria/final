@@ -10,9 +10,7 @@ export default class Todo extends React.Component {
         super(props);
 
         this.state = {
-            items: [],
-            text: "",
-            tasks:  ""
+            text: ""
         };
 
         this.handleTextChange = this.handleTextChange.bind(this);
@@ -26,7 +24,7 @@ export default class Todo extends React.Component {
         axios.get('/getApps').then(resp => {
             console.log("resp in axios get list: ", resp.data);
             this.setState({
-                tasks: resp.data
+                items: resp.data
             });
         });
     }
@@ -94,7 +92,7 @@ export default class Todo extends React.Component {
                                 <input name='task' type="text" className="form-control" onChange={this.handleTextChange} value={this.state.text} />
                             </div>
                             <div className="col-md-3">
-                                <button className="add-task-button" onClick={this.handleAddItem} disabled={!this.state.text}>{"Add #" + (this.state.items.length + 1)}</button>
+                                <button className="add-task-button" onClick={this.handleAddItem} disabled={!this.state.text}>ADD</button>
                             </div>
                         </div>
                     </form>
