@@ -84,7 +84,16 @@ button:hover{
     color: blue;
 }
 
-
+.todo-container{
+    border: 1px solid red;
+    width: 500px;
+    height: 500px;
+    margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 
 /* -------- END OF TODO  -------- */
@@ -140,6 +149,35 @@ button:hover{
 
 
 /* --------END OF LOGIN------- */
+
+
+
+/* --------SLIDE------- */
+
+.slide {
+    height: 500px;
+    width: 350px;
+    border: 1px solid black;
+    float: right;
+    align-items: center;
+
+
+}
+
+.tab {
+    border: 1px solid black;
+    text-align: center;
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+}
+
+
+/* --------END OF SLIDE------- */
+
+
+
 
 /* --------TYPING CAROUSEL------- */
 .typing-carousel {

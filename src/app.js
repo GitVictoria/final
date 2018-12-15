@@ -32,9 +32,6 @@ export default class App extends React.Component {
                             exact path = '/profile'
                             component = {Profile}/>
 
-                        <Route
-                            exact path = '/todo'
-                            component = {Todo}/>
                     </div>
 
                 </BrowserRouter>
@@ -42,3 +39,8 @@ export default class App extends React.Component {
         );
     }
 }
+
+// 
+// <Route
+//     exact path = '/todo'
+//     component = {Todo}/>
