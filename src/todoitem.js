@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from './axios';
 
 
 
@@ -15,7 +16,12 @@ export default class TodoItem extends React.Component {
         this.props.onItemCompleted(this.props.id);
     }
     deleteItem(event) {
+        console.log("GET ID IN DELETE: ", this.props.text);
         this.props.onDeleteItem(this.props.id);
+        axios.post('/deleteApp', this.props).then(resp => {
+            console.log("axios resp in delete apps: ", resp);
+
+        });
     }
     // Highlight newly added item for several seconds.
     componentDidMount() {

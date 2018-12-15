@@ -12,3 +12,10 @@ CREATE TABLE users(
 
 INSERT INTO users (first, last, age, email, dob, city, country, password)
 VALUES ('Victoria', 'Almazova', 26, 'almazovaite@gmail.com', 09-11-1992, 'Berlin', 'Germany', 'catodoggo');
+
+
+CREATE TABLE apps(
+    id SERIAL PRIMARY KEY,
+    task VARCHAR(500) NOT NULL,
+    date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);

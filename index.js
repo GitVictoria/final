@@ -46,6 +46,30 @@ app.use(function(req, res, next){
 
 
 
+app.get('/getApps', (req, res) => {
+    db.getApps().then(results => {
+        res.json(results.rows);
+        console.log("results.rows", results.rows);
+    }
+    );
+
+});
+
+
+
+
+app.post('/deleteApp', (req, res) => {
+    console.log('Req.body in app post delete: ', req.body);
+    db.deleteApp(req.body.text).then(results => {
+        res.json(results.rows);
+        console.log("results.rows in delete app", results.rows);
+
+    }).catch ( err => {
+        console.log(err);
+    });
+});
+
+
 app.post('/login', (req, res) => {
     if(!req.body.first) {
         res.json({showErr: true});
@@ -73,6 +97,14 @@ app.post('/login', (req, res) => {
 
         });
     }
+});
+
+app.post('/addApp', (req, res) => {
+    console.log("req.body is : ", req.body);
+    db.addApp(req.body.text)
+        .then(function(results) {
+            res.json(results);
+        });
 });
 
 app.post('/register', (req, res) => {

@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoList from './todolist';
+import axios from './axios';
 
 
 
@@ -10,7 +11,8 @@ export default class Todo extends React.Component {
 
         this.state = {
             items: [],
-            text: ""
+            text: "",
+            tasks:  ""
         };
 
         this.handleTextChange = this.handleTextChange.bind(this);
@@ -18,6 +20,19 @@ export default class Todo extends React.Component {
         this.markItemCompleted = this.markItemCompleted.bind(this);
         this.handleDeleteItem = this.handleDeleteItem.bind(this);
     }
+
+
+    componentDidMount() {
+        axios.get('/getApps').then(resp => {
+            console.log("resp in axios get list: ", resp.data);
+            this.setState({
+                tasks: resp.data
+            });
+        });
+    }
+
+
+
     handleTextChange(event) {
         this.setState({
             text: event.target.value
@@ -25,6 +40,8 @@ export default class Todo extends React.Component {
     }
     handleAddItem(event) {
         event.preventDefault();
+
+
 
         var newItem = {
             id: Date.now(),
@@ -36,13 +53,20 @@ export default class Todo extends React.Component {
             items: prevState.items.concat(newItem),
             text: ""
         }));
+
+        axios.post('/addApp', this.state).then(resp => {
+            console.log("axios resp in apps: ", resp);
+        });
     }
     markItemCompleted(itemId) {
+
         var updatedItems = this.state.items.map(item => {
             if (itemId === item.id)
                 item.done = !item.done;
 
             return item;
+
+
         });
 
         // State Updates are Merged
@@ -67,7 +91,7 @@ export default class Todo extends React.Component {
                     <form className="row">
                         <div className='input-container'>
                             <div className="col-md-3">
-                                <input type="text" className="form-control" onChange={this.handleTextChange} value={this.state.text} />
+                                <input name='task' type="text" className="form-control" onChange={this.handleTextChange} value={this.state.text} />
                             </div>
                             <div className="col-md-3">
                                 <button className="add-task-button" onClick={this.handleAddItem} disabled={!this.state.text}>{"Add #" + (this.state.items.length + 1)}</button>
@@ -78,6 +102,15 @@ export default class Todo extends React.Component {
                         <div className="col-md-3">
                             <TodoList items={this.state.items} onItemCompleted={this.markItemCompleted} onDeleteItem={this.handleDeleteItem} />
                         </div>
+                    </div>
+                    <div>
+                        {this.state.tasks && this.state.tasks.map(task => {
+                            return (<div key={task.id}>
+
+                                {task.task}
+                            </div>);
+                        })}
+
                     </div>
                 </center>
             </div>

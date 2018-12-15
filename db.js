@@ -4,6 +4,32 @@ var db = spicedPg(
     `postgres:postgres:postgres@localhost:5432/final`
 );
 
+exports.addApp = task => {
+    return db.query(
+        `INSERT INTO apps (task)
+            VALUES ($1)
+            RETURNING *`,
+        [task]
+    );
+};
+
+exports.getApps = () => {
+    return db.query(
+        `SELECT * FROM apps
+        `
+
+    );
+
+};
+
+exports.deleteApp = task => {
+    return db.query(
+        `DELETE FROM apps
+        WHERE task = $1`,
+        [task]
+    );
+};
+
 
 
 exports.checkUser = first => {
