@@ -4,6 +4,30 @@ var db = spicedPg(
     `postgres:postgres:postgres@localhost:5432/final`
 );
 
+
+exports.insertidea = (title, idea, url, pic)  => {
+    return db.query(
+        `INSERT INTO ideas (title, idea, url, pic)
+        VALUES ($1, $2, $3, $4)
+        RETURNING *`,
+        [title, idea, url, pic]
+    );
+};
+
+
+
+exports.storeImages = (id, pic) => {
+    return db.query(
+        `UPDATE ideas
+          SET pic = $2
+          WHERE id = $1`,
+        [id, pic]
+    );
+};
+
+
+
+
 exports.addApp = task => {
     return db.query(
         `INSERT INTO apps (task)

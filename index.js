@@ -6,6 +6,8 @@ const csurf = require("csurf");
 const bcrypt = require("./bcrypt");
 const path = require('path');
 const db = require("./db");
+const s3 = require("./s3");
+
 
 app.use(compression());
 
@@ -44,6 +46,86 @@ app.use(function(req, res, next){
 
 // ------------ END OF CSURF ---------------------//
 
+
+
+// ------------ BOILER PLATE TO UPLOAD FILES ---------------------//
+
+
+var multer = require("multer"); // takes image and puts in in uploads
+var uidSafe = require("uid-safe");
+
+var diskStorage = multer.diskStorage({
+    destination: function(req, file, callback) {
+        // where on my computer this file should be saved
+        callback(null, __dirname + "/uploads");
+    },
+    filename: function(req, file, callback) {
+        uidSafe(24).then(function(uid) {
+            // will convert name into 24 character string, makes sure every file has unique name
+            callback(null, uid + path.extname(file.originalname));
+        });
+    }
+});
+
+var uploader = multer({
+    storage: diskStorage,
+    limits: {
+        fileSize: 2097152 // max size that user can upload
+    }
+});
+
+// ------------ END OF BOILER PLATE TO UPLOAD FILES ---------------------//
+
+
+// ------------ UPLOADER ---------------------//
+
+
+
+app.post('/upload', uploader.single('file'), s3.upload, function(req, res) {
+    if (req.file) {
+        const url = 'https://s3.amazonaws.com/victoria-catnip-imageboards/' + req.file.filename;
+        db.storeImages(
+            req.session.user_id, url
+            // req.body.title,
+            // req.body.description,
+
+            // req.body.username
+        )
+            .then(results => {
+                res.json({
+                    results: results.rows,
+                    success: true
+                });
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    } else {
+        res.json({
+            success: false
+        });
+    }
+
+    // upload image to uploads directory
+    // upload image to Amazon
+    // insert image into db
+    // send response nack tp uploader
+    // will bd DB query UPDATE not insert
+});
+
+
+// ------------ END OF  UPLOADER ---------------------//
+
+
+app.post('/insertidea', (req, res) => {
+    console.log("req.body: ", req.body);
+    db.insertidea(req.body.title, req.body.idea, req.body.url, req.body.file)
+        .then(function(results) {
+            res.json(results);
+        }).catch(err => {
+            console.log(err);
+        });
+});
 
 
 app.get('/getApps', (req, res) => {

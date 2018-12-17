@@ -100,15 +100,56 @@ button:hover{
 /* --------IDEA BANK -------- */
 
 
-.idea-bank-container {
+.idea-tab-container {
     border: 2px solid pink;
     height: 700px;
 }
 
-.idea-input{
+.idea-bank-container{
+    height: 300px;
+    width: 550px;
+    border: 2px solid black;
+}
+
+.title-input{
+    margin-bottom: 0px;
+    border: none;
     width: 400px;
-    border-radius: 20%;
     text-align: center;
+}
+
+.idea-input{
+    margin-bottom: 0px;
+    border: none;
+    width: 400px;
+    text-align: center;
+}
+
+.url-input{
+    margin-bottom: 0px;
+    border: none;
+    width: 400px;
+    text-align: center;
+}
+
+.image-input{
+    margin-bottom: 0px;
+    border: none;
+    width: 400px;
+    text-align: center;
+}
+
+.uploader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -100px;
+    border: 3px solid #2B2826;
+    width: 600px;
+    text-align: center;
+    background-color: #a6a2a2cf;
+    z-index: 100;
 }
 
 
