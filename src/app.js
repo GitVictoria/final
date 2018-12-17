@@ -3,6 +3,8 @@ import axios from './axios';
 import {BrowserRouter, Route} from 'react-router-dom';
 import Profile from './profile';
 import Todo from './todo';
+import IdeaBank from './ideabank';
+import Calendar from './calendar';
 
 
 
@@ -32,6 +34,14 @@ export default class App extends React.Component {
                             exact path = '/profile'
                             component = {Profile}/>
 
+
+
+                        <Route
+                            exact path = '/idea-bank'
+                            component = {IdeaBank}/>
+
+                
+
                     </div>
 
                 </BrowserRouter>
@@ -40,7 +50,7 @@ export default class App extends React.Component {
     }
 }
 
-// 
+//
 // <Route
 //     exact path = '/todo'
 //     component = {Todo}/>

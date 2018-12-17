@@ -16,35 +16,45 @@ export default class Welcome extends React.Component {
     }
 
 
-    render() {
 
+
+    render() {
+        const words = ['Productive', 'Engaging', 'Impactful', 'Fruitful'];
+
+        for (let i = 4; i < 18; i++) {
+    	words[i] = words[i - 4];
+        }
         return(
             <div className='welcome-container-wrapper'>
                 <div className='welcome-container'>
-                    <h1>Welcome page</h1>
-                    <div className='typing-carousel-container'>
-                        <Typist>
-                            <span className="my-custom-class"> Hello Victoria </span>
-                            <br />
-                            <div className="container">
-                                <p> Glad to see you.  </p>
-                            </div>
-                            Final sentence
-                            <Typist.Backspace count={8} delay={200} />
-
-                            Beautiful
-                            <Typist.Backspace count={9} delay={200} />
-
-                            Not at all
-                            <Typist.Backspace count={10} delay={200} />
-
-
-                        </Typist>
+                    <div className='type-container'>
+                        <h1 className='greeting'>Hey there,</h1>
+                        <h2 className='span-wrapper'>Hope you have a(n)</h2>
+                        <div className='typing-carousel-container'>
+                            <Typist>
+        			{words.map((word, i) => (
+        				<span key={word}>
+        					{word}
+        					<Typist.Backspace
+        						count={word.length}
+        						delay={(i + 1) * 2000}
+        					/>
+        				</span>
+        			))}
+        		</Typist>
+                        </div>
+                        <h2 className='span-wrapper'>day...</h2>
                     </div>
+                </div>
+                <div className='vl'>
+                </div>
+                <div className='vl'>
+                </div>
+                <div className='vl'>
                 </div>
                 <div className='login-container'>
                     <HashRouter>
-                        <div>
+                        <div className='login-component-container'>
 
                             <Route exact path = '/' component = { Login } />
                         </div>

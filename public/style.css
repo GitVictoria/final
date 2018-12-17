@@ -1,7 +1,25 @@
+* {
+    /* font-family: 'Major Mono Display', monospace; */
+font-family: 'Josefin Slab', serif;
+background-color: #F7F7F7
+}
+
+
 /* --------WELCOME  -------- */
 
+.vl {
+    height: 900px;
+    width: 10px;
+    color: black;
+    z-index: 100;
+
+}
+
+.type-container{
+    margin-top: 100px;
+}
+
 .welcome-container-wrapper {
-    border: 2px solid red;
     height: 900px;
     width: 100%;
     display: inline-flex;
@@ -9,15 +27,86 @@
 }
 
 .welcome-container {
-    border: 2px solid pink;
+    border-right: 1px;
+    border-style: none double none none;
+
+    text-align: center;
+    width: 50%;
+    height: 900px;
+}
+
+.greeting{
+    margin-bottom: 50px;
+    font-size: 50px;
+}
+
+span{
+    font-size: 40px;
+}
+
+.span-wrapper {
+    font-size: 40px
+}
+
+/* --------LOGIN------- */
+
+.login-container {
+    /* border: 2px solid black; */
     width: 50%;
     height: 900px;
 
+}
 
+.login-component-container {
+    margin-top: 100px;
+}
+
+.login-input {
+    border: none;
+   border-bottom: 2px solid black;
+   background: none;
+   width: 250px;
+   margin-top: 40px;
+    font-size: 20px;
+    height: 30px;
+    text-align: center;
+    background-color: none;
+}
+
+input:focus {
+    background-color: #E3EBEF
+}
+
+.login-button {
+    width: 200px;
+    height: 20px;
+    margin-top: 50px;
+}
+
+.login-statement {
+    margin-bottom: 100px;
 }
 
 
+/* --------END OF LOGIN------- */
 
+
+
+
+/* -------- CALENDAR  -------- */
+
+.calendar-container {
+    margin-left: 50px;
+    width: 900px;
+    height: 700px;
+}
+
+button:hover {
+    background-color: #D5E6EF
+}
+
+
+/* -------- END OF CALENDAR  -------- */
 
 /* -------- END OF WELCOME  -------- */
 
@@ -204,18 +293,7 @@ button:hover{
 
 
 
-/* --------LOGIN------- */
 
-.login-container {
-    border: 2px solid black;
-    width: 50%;
-    height: 900px;
-
-}
-
-
-
-/* --------END OF LOGIN------- */
 
 
 

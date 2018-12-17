@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from './axios';
-// import Uploader from './uploader';
+import { Link } from 'react-router-dom';
 
 
 export default class Ideas extends React.Component {
@@ -85,6 +85,9 @@ export default class Ideas extends React.Component {
                         </div>
                         <button className="submit-button" onClick={this.handleSubmit, this.clearInput}>Submit</button>
                     </form>
+                </div>
+                <div className='idea-bank'>
+                    <button><Link className='link' to = '/idea-bank'>Review previous ideas</Link></button>
                 </div>
             </div>
         );

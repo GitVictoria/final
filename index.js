@@ -117,6 +117,18 @@ app.post('/upload', uploader.single('file'), s3.upload, function(req, res) {
 // ------------ END OF  UPLOADER ---------------------//
 
 
+
+app.get('/getIdeas', (req, res) => {
+    db.getIdeas().then(results => {
+        console.log("results in axios get ideas: ", results);
+        res.json(results.rows);
+    });
+});
+
+
+
+
+
 app.post('/insertidea', (req, res) => {
     console.log("req.body: ", req.body);
     db.insertidea(req.body.title, req.body.idea, req.body.url, req.body.file)

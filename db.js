@@ -4,6 +4,12 @@ var db = spicedPg(
     `postgres:postgres:postgres@localhost:5432/final`
 );
 
+exports.getIdeas = () => {
+    return db.query(
+        `SELECT * FROM ideas`
+    );
+};
+
 
 exports.insertidea = (title, idea, url, pic)  => {
     return db.query(
