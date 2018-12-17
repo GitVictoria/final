@@ -49,7 +49,6 @@ app.use(function(req, res, next){
 app.get('/getApps', (req, res) => {
     db.getApps().then(results => {
         res.json(results.rows);
-        console.log("results.rows", results.rows);
     }
     );
 
@@ -62,11 +61,52 @@ app.post('/deleteApp', (req, res) => {
     console.log('Req.body in app post delete: ', req.body);
     db.deleteApp(req.body.text).then(results => {
         res.json(results.rows);
-        console.log("results.rows in delete app", results.rows);
 
     }).catch ( err => {
         console.log(err);
     });
+});
+
+app.post('/addApp', (req, res) => {
+    db.addApp(req.body.text)
+        .then(function(results) {
+            res.json(results);
+        });
+});
+
+
+
+
+
+app.get('/getHome', (req, res) => {
+    db.getHome().then(results => {
+        res.json(results.rows);
+        console.log("results.rows get HOME", results.rows);
+    }
+    );
+
+});
+
+
+
+
+app.post('/deleteHome', (req, res) => {
+    console.log('Req.body in HOME post delete: LALALALA', req.body);
+    db.deleteHome(req.body.text).then(results => {
+        res.json(results.rows);
+        console.log("results in delete HOME", results);
+
+    }).catch ( err => {
+        console.log(err);
+    });
+});
+
+app.post('/addHome', (req, res) => {
+    console.log("req.body is in addHOME : ", req.body);
+    db.addHome(req.body.text)
+        .then(function(results) {
+            res.json(results);
+        });
 });
 
 
@@ -99,13 +139,7 @@ app.post('/login', (req, res) => {
     }
 });
 
-app.post('/addApp', (req, res) => {
-    console.log("req.body is : ", req.body);
-    db.addApp(req.body.text)
-        .then(function(results) {
-            res.json(results);
-        });
-});
+
 
 app.post('/register', (req, res) => {
     bcrypt.hash(req.body.password).then(hash => {

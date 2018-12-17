@@ -26,9 +26,7 @@
 
 }
 
-.todo-container {
-    border: 1px solid black;
-}
+
 
 .row {
     border: 1 px solid red;
@@ -97,6 +95,34 @@ button:hover{
 
 
 /* -------- END OF TODO  -------- */
+
+
+/* --------IDEA BANK -------- */
+
+
+.idea-bank-container {
+    border: 2px solid pink;
+    height: 700px;
+}
+
+.idea-input{
+    width: 400px;
+    border-radius: 20%;
+    text-align: center;
+}
+
+
+
+/* --------END OF IDEA BANK -------- */
+
+
+
+
+
+
+
+
+
 
 
 

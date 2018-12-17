@@ -30,6 +30,33 @@ exports.deleteApp = task => {
     );
 };
 
+exports.addHome = task => {
+    return db.query(
+        `INSERT INTO home (task)
+            VALUES ($1)
+            RETURNING *`,
+        [task]
+    );
+};
+
+exports.getHome = () => {
+    return db.query(
+        `SELECT * FROM home
+        `
+
+    );
+
+};
+
+exports.deleteHome = task => {
+    console.log("task: ", task);
+    return db.query(
+        `DELETE FROM home
+        WHERE task = $1`,
+        [task]
+    );
+};
+
 
 
 exports.checkUser = first => {

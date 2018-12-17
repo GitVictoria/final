@@ -3,22 +3,31 @@ import axios from './axios';
 import { Link } from 'react-router-dom';
 import Slide from './slide';
 import Todo from './todo';
+import Ideas from './ideas';
 
 export default class Profile extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             slideVisible: false,
+            ideaBankVisible: false
             // todoVisible: false
 
         };
 
         this.showSlide = this.showSlide.bind(this);
+        this.showIdeas = this.showIdeas.bind(this);
     }
 
     showSlide() {
         this.setState({
             slideVisible: true
+        });
+    }
+
+    showIdeas() {
+        this.setState({
+            ideaBankVisible: true
         });
     }
 
@@ -30,7 +39,7 @@ export default class Profile extends React.Component {
                 <div className = 'nav-container'>
 
                     <div className='nav-tab'>
-                        <button className="redirect-page"><Link className='link' to = '/idea-bank'>BANK    SOME    IDEAS</Link></button>
+                        <button onClick={this.showIdeas} className="redirect-page">BANK    SOME    IDEAS</button>
                     </div>
                     <div className='separator-container'>
                         <h1 className='separator'>||</h1>
@@ -55,6 +64,9 @@ export default class Profile extends React.Component {
                 </div>
                 <div>
                     {this.state.slideVisible && <Slide/>}
+                </div>
+                <div>
+                    {this.state.ideaBankVisible && <Ideas/>}
                 </div>
 
 
