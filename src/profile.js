@@ -20,13 +20,22 @@ export default class Profile extends React.Component {
         };
 
         this.showSlide = this.showSlide.bind(this);
+        this.hideSlide = this.hideSlide.bind(this);
         this.showIdeas = this.showIdeas.bind(this);
+        this.hideIdeas = this.hideIdeas.bind(this);
         this.showCalendar = this.showCalendar.bind(this);
+        this.hideCalendar = this.hideCalendar.bind(this);
     }
 
     showSlide() {
         this.setState({
             slideVisible: true
+        });
+    }
+
+    hideSlide() {
+        this.setState({
+            slideVisible: false
         });
     }
 
@@ -36,9 +45,21 @@ export default class Profile extends React.Component {
         });
     }
 
+    hideIdeas() {
+        this.setState({
+            ideaBankVisible: false
+        });
+    }
+
     showCalendar() {
         this.setState({
             calendarVisible: true
+        });
+    }
+
+    hideCalendar() {
+        this.setState({
+            calendarVisible: false
         });
     }
 
@@ -74,13 +95,13 @@ export default class Profile extends React.Component {
                     </div>
                 </div>
                 <div>
-                    {this.state.slideVisible && <Slide/>}
+                    {this.state.slideVisible && <Slide hideSlide={this.hideSlide}/>}
                 </div>
                 <div>
-                    {this.state.ideaBankVisible && <Ideas/>}
+                    {this.state.ideaBankVisible && <Ideas hideIdeas={this.hideIdeas}/>}
                 </div>
                 <div>
-                    {this.state.calendarVisible && <Calendar/>}
+                    {this.state.calendarVisible && <Calendar hideCalendar={this.hideCalendar}/>}
                 </div>
 
 

@@ -74,6 +74,8 @@ var uploader = multer({
     }
 });
 
+
+
 // ------------ END OF BOILER PLATE TO UPLOAD FILES ---------------------//
 
 
@@ -81,37 +83,37 @@ var uploader = multer({
 
 
 
-app.post('/upload', uploader.single('file'), s3.upload, function(req, res) {
-    if (req.file) {
-        const url = 'https://s3.amazonaws.com/victoria-catnip-imageboards/' + req.file.filename;
-        db.storeImages(
-            req.session.user_id, url
-            // req.body.title,
-            // req.body.description,
-
-            // req.body.username
-        )
-            .then(results => {
-                res.json({
-                    results: results.rows,
-                    success: true
-                });
-            })
-            .catch(err => {
-                console.log(err);
-            });
-    } else {
-        res.json({
-            success: false
-        });
-    }
+// app.post('/upload', uploader.single('file'), s3.upload, function(req, res) {
+//     if (req.file) {
+//         const url = 'https://s3.amazonaws.com/victoria-catnip-imageboards/' + req.file.filename;
+//         db.storeImages(
+//             req.session.user_id, url
+//             // req.body.title,
+//             // req.body.description,
+//
+//             // req.body.username
+//         )
+//             .then(results => {
+//                 res.json({
+//                     results: results.rows,
+//                     success: true
+//                 });
+//             })
+//             .catch(err => {
+//                 console.log(err);
+//             });
+//     } else {
+//         res.json({
+//             success: false
+//         });
+//     }
 
     // upload image to uploads directory
     // upload image to Amazon
     // insert image into db
     // send response nack tp uploader
     // will bd DB query UPDATE not insert
-});
+
 
 
 // ------------ END OF  UPLOADER ---------------------//
@@ -119,9 +121,11 @@ app.post('/upload', uploader.single('file'), s3.upload, function(req, res) {
 
 
 app.get('/getIdeas', (req, res) => {
+
     db.getIdeas().then(results => {
-        console.log("results in axios get ideas: ", results);
         res.json(results.rows);
+    }).catch(err =>{
+        console.log(err);
     });
 });
 
@@ -129,14 +133,18 @@ app.get('/getIdeas', (req, res) => {
 
 
 
-app.post('/insertidea', (req, res) => {
-    console.log("req.body: ", req.body);
-    db.insertidea(req.body.title, req.body.idea, req.body.url, req.body.file)
-        .then(function(results) {
-            res.json(results);
-        }).catch(err => {
-            console.log(err);
-        });
+app.post('/insertidea', uploader.single('file'), s3.upload, function(req, res) {
+    if (req.file) {
+        const pic = 'https://s3.amazonaws.com/victoria-catnip-imageboards/' + req.file.filename ;
+        console.log("req.body: ", pic);
+
+        db.insertidea(req.body.title, req.body.idea, req.body.url, pic)
+            .then(function(results) {
+                res.json(results.rows[0]);
+            }).catch(err => {
+                console.log(err);
+            });
+    }
 });
 
 
@@ -270,3 +278,5 @@ app.get('*', function(req, res) {
 app.listen(8080, function() {
     console.log("I'm listening.");
 });
+
+/// in the app post for idea remove req.body.file and refer to social network for examples.

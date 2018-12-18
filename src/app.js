@@ -5,6 +5,7 @@ import Profile from './profile';
 import Todo from './todo';
 import IdeaBank from './ideabank';
 import Calendar from './calendar';
+import Speech from './speech';
 
 
 
@@ -40,7 +41,9 @@ export default class App extends React.Component {
                             exact path = '/idea-bank'
                             component = {IdeaBank}/>
 
-                
+                        <Route
+                            exact path = '/speech'
+                            component = {Speech}/>
 
                     </div>
 

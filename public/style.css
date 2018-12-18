@@ -246,6 +246,9 @@ button:hover{
 /* --------END OF IDEA BANK -------- */
 
 .idea-description-box {
+    border: 2px solid pink;
+    margin-left: 100px;
+    width: 100%;
 
 }
 
@@ -262,6 +265,7 @@ button:hover{
 
 .idea-box {
     border: 1px solid red;
+    margin-bottom: 20px;
     display: inline-flex;
     width: 100%;
 }
@@ -270,9 +274,9 @@ button:hover{
     border: 2px solid #847577;
     transform: rotate(-30deg);
     z-index: 1;
-    padding: 10px;
-    height: 220px;
-    width: 270px;
+    padding: 5px;
+    height: 250px;
+    width: 300px;
 }
 
 .card {
@@ -281,12 +285,12 @@ button:hover{
     transform: rotate(30deg);
     z-index: 1;
     border: 1px solid #847577;
-    width: 290px;
+    width: 350px;
     /* border-radius: 5%; */
     /* background: #fbfbf2; */
     background: none;
     margin-top: 50px;
-    margin-left: 50px;
+    margin-left: 100px;
 }
 
 .idea-container {
@@ -296,10 +300,15 @@ button:hover{
 }
 
 
+.link-to-inspo {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
 
 
-
-
+.created-at {
+    font-size: 20px;
+}
 
 
 
@@ -377,3 +386,39 @@ button:hover{
 }
 
 /* --------END OF TYPING CAROUSEL------- */
+
+.container{
+    display : flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+}
+
+  button {
+
+  }
+
+  .microphone-btn{
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin: 6em 0 2em 0;
+
+  }
+
+.interim {
+    color: grey;
+    border: #ccc 1px solid;
+    padding: 1px;
+    margin: 1px;
+    width: 300px;
+    height: 200px;
+  }
+
+  .final {
+    color: black;
+    border: #ccc 1px solid;
+    padding: 1em;
+    margin: 1em;
+    width: 300px;
+  }

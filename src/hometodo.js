@@ -100,7 +100,7 @@ export default class HomeTodo extends React.Component {
                     <div className="row">
                         <div className="col-md-3">
                             <HomeList items={this.state.items} onItemCompleted={this.markItemCompleted} onDeleteItem={this.handleDeleteItem} />
-                            <h1 onClick={this.hideHomeTodo}>X</h1>
+                            <h1 onClick={this.props.hideHomeTodo}>X</h1>
                         </div>
                     </div>
                     <div>

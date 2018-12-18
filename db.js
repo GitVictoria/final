@@ -6,7 +6,8 @@ var db = spicedPg(
 
 exports.getIdeas = () => {
     return db.query(
-        `SELECT * FROM ideas`
+        `SELECT * FROM ideas
+        ORDER BY date DESC`
     );
 };
 

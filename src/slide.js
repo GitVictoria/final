@@ -11,6 +11,7 @@ export default class Slide extends React.Component {
         };
 
         this.showTodo = this.showTodo.bind(this);
+        this.hideTodo = this.hideTodo.bind(this);
         this.showHomeTodo = this.showHomeTodo.bind(this);
         this.hideHomeTodo = this.hideHomeTodo.bind(this);
 
@@ -34,10 +35,18 @@ export default class Slide extends React.Component {
         });
     }
 
+    hideTodo() {
+        this.setState({
+            todoVisible: false
+        });
+    }
+
 
     render() {
         return(
             <div className='slide'>
+                <h1 onClick={this.props.hideSlide}>X</h1>
+
                 <div className='tab'>
                     <h2>Accomplish Today</h2>
                 </div>
@@ -53,11 +62,11 @@ export default class Slide extends React.Component {
 
 
                 <div>
-                    {this.state.todoVisible && <Todo/>}
+                    {this.state.todoVisible && <Todo hideTodo={this.hideTodo}/>}
 
                 </div>
 
-                {this.state.homeTodoVisible && <HomeTodo/>}
+                {this.state.homeTodoVisible && <HomeTodo hideHomeTodo={this.hideHomeTodo}/>}
 
 
             </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from './axios';
 import { Link } from 'react-router-dom';
+import Moment from 'react-moment';
 
 export default class IdeaBank extends React.Component {
     constructor() {
@@ -11,12 +12,10 @@ export default class IdeaBank extends React.Component {
     }
 
     componentDidMount() {
-        console.log("Idea bank just mounted ");
         axios.get('/getIdeas').then(resp => {
             this.setState({
                 ideas: resp.data
             });
-            console.log(resp.data);
         }).catch(err => {
             console.log(err);
         });
@@ -51,11 +50,20 @@ export default class IdeaBank extends React.Component {
                                     </center>
                                     <center>
                                     Description:
+                                        <h3 className='idea-description'>{ideas.idea}</h3>
                                     </center>
-                                    <h3 className='idea-description'>{ideas.idea}</h3>
                                     <center>
-                                        <a rel="noopener noreferrer" href={ideas.url} target="_blank">Link Here</a>
+                                        <div className='link-to-inspo'>
+                                            <a rel="noopener noreferrer" href={ideas.url} target="_blank">Link Here</a>
+                                        </div>
                                     </center>
+                                    <div>
+                                        <center>
+                                            <div className='created-at'>
+                                            Created: <Moment fromNow>{ideas.date}</Moment>
+                                            </div>
+                                        </center>
+                                    </div>
                                 </div>
                             </div>
 
