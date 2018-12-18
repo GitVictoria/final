@@ -1,101 +1,51 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
+import SpeechRecognition from 'react-speech-recognition';
 
 //------------------------SPEECH RECOGNITION-----------------------------
 
-const SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
-const recognition = new SpeechRecognition();
 
-recognition.continous = true;
-recognition.interimResults = true;
-recognition.lang = 'en-US';
 
+// const propTypes = {
+//     // Props injected by SpeechRecognition
+//     transcript: PropTypes.string,
+//     resetTranscript: PropTypes.func,
+//     browserSupportsSpeechRecognition: PropTypes.bool
+// };
+
+const options = {
+    autoStart: false
+};
 
 //------------------------COMPONENT-----------------------------
 
 class Speech extends Component {
 
-    constructor() {
-        super();
-        this.state = {
-            listening: false
-        };
-        this.toggleListen = this.toggleListen.bind(this);
-        this.handleListen = this.handleListen.bind(this);
-    }
 
-    toggleListen() {
-        this.setState({
-            listening: !this.state.listening
-        }, this.handleListen);
-    }
 
-    handleListen() {
-
-        console.log('listening?', this.state.listening);
-
-        if (this.state.listening) {
-            recognition.start();
-            recognition.onend = () => {
-                console.log("...continue listening...");
-                recognition.start();
-            };
-
-        } else {
-            recognition.stop();
-            recognition.onend = () => {
-                console.log("Stopped listening per click");
-            };
-        }
-
-        recognition.onstart = () => {
-            console.log("Listening!");
-        };
-
-        let finalTranscript = '';
-        recognition.onresult = event => {
-            let interimTranscript = '';
-
-            for (let i = event.resultIndex; i < event.results.length; i++) {
-                const transcript = event.results[i][0].transcript;
-                if (event.results[i].isFinal) finalTranscript += transcript + ' ';
-                else interimTranscript += transcript;
-            }
-            document.getElementById('interim').innerHTML = interimTranscript;
-            document.getElementById('final').innerHTML = finalTranscript;
-
-            //-------------------------COMMANDS------------------------------------
-
-            const transcriptArr = finalTranscript.split(' ');
-            const stopCmd = transcriptArr.slice(-3, -1);
-            console.log('stopCmd', stopCmd);
-
-            if (stopCmd[0] === 'stop' && stopCmd[1] === 'listening'){
-                recognition.stop();
-                recognition.onend = () => {
-                    console.log('Stopped listening per command');
-                    const finalText = transcriptArr.slice(0, -3).join(' ');
-                    document.getElementById('final').innerHTML = finalText;
-                };
-            }
-        };
-
-        //-----------------------------------------------------------------------
-
-        recognition.onerror = event => {
-            console.log("Error occurred in recognition: " + event.error);
-        };
-
-    }
 
     render() {
+        const { transcript, resetTranscript, browserSupportsSpeechRecognition, startListening, stopListening } = this.props;
+
+
+
+        if (!browserSupportsSpeechRecognition) {
+            return null;
+        }
+
         return (
-            <div id='container' className='container' >
-                <button className='microphone-btn'  onClick={this.toggleListen} />
-                <div id='interim' className='interim' ></div>
-                <div id='final' className='final'></div>
+            <div>
+                <div className='transcript-container'>
+                    <span className='transcript-span'>{transcript}</span>
+                </div>
+                <button onClick={resetTranscript}>Reset</button>
+                <button onClick={startListening}>Start</button>
+                <button onClick={stopListening}>Stop</button>
             </div>
         );
     }
 }
 
-export default Speech;
+// Speech.propTypes = propTypes;
+
+export default SpeechRecognition(options)(Speech);
