@@ -1,11 +1,12 @@
 import React from 'react';
 import axios from './axios';
+import { Link } from 'react-router-dom';
 
 export default class IdeaBank extends React.Component {
     constructor() {
         super();
         this.state = {
-            ideas: ''
+            ideas: []
         };
     }
 
@@ -22,22 +23,44 @@ export default class IdeaBank extends React.Component {
     }
 
     render() {
+        console.log("this.state.ideas: ", this.state);
         return(
-            <div className='idea-bank-container'>
+
+            <div className='idea-container'>
+                <center>
+                    <h1>Have a look at your previous ideas</h1>
+                </center>
                 {this.state.ideas.map(ideas =>{
                     var url;
                     if (ideas.pic) {
                         url = ideas.pic;
                     } else {
-                        url = '/Hanger.jpg';
+                        url = '/idea.png';
                     }
 
                     return (
+
                         <div key= {ideas.id}>
-                            <img className="idea-pic" src={url} alt="online user"/>
-                            {ideas.title}
-                            {ideas.idea}
+                            <div className='idea-box'>
+                                <div className='card'>
+                                    <img className="idea-pic" src={url} alt="online user"/>
+                                </div>
+                                <div className='idea-description-box'>
+                                    <center>
+                                        <h1 className='idea-title'>{ideas.title}</h1>
+                                    </center>
+                                    <center>
+                                    Description:
+                                    </center>
+                                    <h3 className='idea-description'>{ideas.idea}</h3>
+                                    <center>
+                                        <a rel="noopener noreferrer" href={ideas.url} target="_blank">Link Here</a>
+                                    </center>
+                                </div>
+                            </div>
+
                         </div>
+
                     );
 
                 })}
@@ -45,3 +68,4 @@ export default class IdeaBank extends React.Component {
         );
     }
 }
+// <Link to = {ideas.url}>Click here</Link>
