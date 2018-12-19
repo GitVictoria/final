@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from './axios';
 import { Link } from 'react-router-dom';
+import Speech from './speech';
 
 
 
@@ -21,6 +22,7 @@ export default class Ideas extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.clearInput = this.clearInput.bind(this);
         this.handleFile = this.handleFile.bind(this);
+        this.setFinalTranscript = this.setFinalTranscript.bind(this);
     }
 
 
@@ -35,6 +37,13 @@ export default class Ideas extends React.Component {
     }
 
 
+    setFinalTranscript(finalTranscript){
+        console.log("setFinalTranscript: ", finalTranscript);
+        this.setState({
+            idea: finalTranscript
+        });
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         var formData = new FormData();
@@ -47,7 +56,7 @@ export default class Ideas extends React.Component {
 
 
 
-        console.log("This.state in isertidea: ", formData);
+        // console.log("This.state in isertidea: ", formData);
         axios.post('/insertidea', formData)
             .then(resp => {
                 console.log("resp in axios post /insertidea: ", resp);
@@ -78,6 +87,13 @@ export default class Ideas extends React.Component {
         });
     }
 
+    // finalTranscript(e) {
+    //     console.log('finalTranscript: ', finalTranscript);
+    //     this.setState({
+    //         idea: e.target.value
+    //     });
+    // }
+
 
 
     render(){
@@ -85,20 +101,24 @@ export default class Ideas extends React.Component {
             <div className='idea-tab-container'>
 
                 <div className='idea-bank-container'>
-                    <h1 onClick={this.props.hideIdeas}>X</h1>
+                    <h1 className='the-x'onClick={this.props.hideIdeas}>X</h1>
                     <form onSubmit={this.handleSubmit}>
                         <h3>Jot those ideas down...</h3>
                         <textarea name='title' rows={1} type='text' placeholder='title' className='title-input' onChange={this.handleChange}/>
-                        <textarea name='idea' rows={10} type='text' placeholder='Idea'  className="idea-input" onChange={this.handleChange}/>
+                        <textarea  value={this.state.idea} name='idea' rows={10} type='text' placeholder='Idea'  className="idea-input" onChange={this.handleChange}/>
                         <textarea name='url' rows={1} type='text' placeholder='URL to inspo' className='url-input' onChange={this.handleChange}/>
                         <div>
-                            <input name = 'file' onChange={ this.handleFile } type = "file" accept = "image/*"/>
+                            <input className='file-input' name = 'file' onChange={ this.handleFile } type = "file" accept = "image/*"/>
                         </div>
-                        <button className="submit-button" onClick={this.handleSubmit, this.clearInput}>Submit</button>
+
+                        <button className="submit-button" onClick={this.handleSubmit}>Submit</button>
                     </form>
+                    <div>
+                        <Speech setFinalTranscript={this.setFinalTranscript}/>
+                    </div>
                 </div>
                 <div className='idea-bank'>
-                    <button><Link className='link' to = '/idea-bank'>Review previous ideas</Link></button>
+                    <button className='link-button'><Link className='link' to = '/idea-bank'>Review previous ideas</Link></button>
                 </div>
             </div>
         );

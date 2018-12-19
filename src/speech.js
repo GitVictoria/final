@@ -23,9 +23,8 @@ class Speech extends Component {
 
 
 
-
     render() {
-        const { transcript, resetTranscript, browserSupportsSpeechRecognition, startListening, stopListening } = this.props;
+        const { transcript, resetTranscript, browserSupportsSpeechRecognition, startListening, stopListening, finalTranscript } = this.props;
 
 
 
@@ -38,14 +37,18 @@ class Speech extends Component {
                 <div className='transcript-container'>
                     <span className='transcript-span'>{transcript}</span>
                 </div>
-                <button onClick={resetTranscript}>Reset</button>
-                <button onClick={startListening}>Start</button>
-                <button onClick={stopListening}>Stop</button>
+                <div className='transcript-buttons'>
+                    <div className='finalTranscript-reset' onClick={resetTranscript}><img className='icon' src='reset.png'/></div>
+                    <div className='finalTranscript-start'onClick={startListening}><img className='icon' src='record1.png'/></div>
+                    <div className='finalTranscript-stop'onClick={stopListening}><img className='icon' src='mic.png'/></div>
+                    <div className='finalTranscript'onClick= { () => {this.props.setFinalTranscript(this.props.finalTranscript);}}><img className='icon' src='done.png'/></div>
+                </div>
             </div>
         );
     }
 }
 
+// <span  className='transcript-span'>{this.props.finalTranscript}</span>
 // Speech.propTypes = propTypes;
 
 export default SpeechRecognition(options)(Speech);
