@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoList from './todolist';
 import axios from './axios';
-
+import Moment from 'react-moment';
 
 
 
@@ -84,7 +84,7 @@ export default class Todo extends React.Component {
     render() {
         return (
             <div className='todo-container'>
-                <h1 onClick={this.props.hideTodo}>X</h1>
+                <h1 className='todoX'onClick={this.props.hideTodo}>X</h1>
 
                 <center>
                     <h3 className="todo-list-name">APPOINTMENTS LIST</h3>
@@ -107,7 +107,9 @@ export default class Todo extends React.Component {
                         {this.state.tasks && this.state.tasks.map(task => {
                             return (<div key={task.id}>
 
-                                {task.task}
+                                {task.task}{task.date}
+
+
                             </div>);
                         })}
 

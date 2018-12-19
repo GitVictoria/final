@@ -37,16 +37,16 @@ export default class TodoItem extends React.Component {
         }
     }
     render() {
-        var itemClass = "form-check todoitem " + (this.props.completed ? "done" : "undone");
+        var itemClass = "form-check-input " + (this.props.completed ? "done" : "undone");
         return (
             <div>
-                <center>
-                    <li className={itemClass} ref={li => this._listItem = li }>
-                        <label className="form-check-label">
-                            <input type="checkbox" className="form-check-input"  onChange={this.deleteItem}/> {this.props.text}
-                        </label>
-                    </li>
-                </center>
+
+                <div className={itemClass} ref={li => this._listItem = li }>
+                    <label htmlFor='form-check-input'className="form-check-label">
+                        <input type="checkbox" id="form-check-input"  onChange={this.deleteItem}/> {this.props.text}
+                    </label>
+                </div>
+
             </div>
         );
     }
