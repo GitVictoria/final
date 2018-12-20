@@ -82,16 +82,16 @@ export default class Profile extends React.Component {
                     <div className='separator-container'>
                         <h1 className='separator'>||</h1>
                     </div>
-
                     <div className='nav-tab'>
-                        <button className="redirect-page"><Link className='link' to = '/online'>FEATURE</Link></button>
+                        <button onClick={this.showSlide}
+                            className="redirect-page">PLAN YOUR DAY</button>
                     </div>
                     <div className='separator-container'>
                         <h1 className='separator'>||</h1>
                     </div>
+
                     <div className='nav-tab'>
-                        <button onClick={this.showSlide}
-                            className="redirect-page">PLAN YOUR DAY</button>
+                        <button className="redirect-page"><Link className='link' to = '/#/'>LOG-OUT</Link></button>
                     </div>
                 </div>
                 <div>

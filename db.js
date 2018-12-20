@@ -7,7 +7,7 @@ var db = spicedPg(
 exports.getIdeas = () => {
     return db.query(
         `SELECT * FROM ideas
-        ORDER BY date ASC`
+        ORDER BY date DESC`
     );
 };
 
@@ -47,6 +47,7 @@ exports.addApp = task => {
 exports.getApps = () => {
     return db.query(
         `SELECT * FROM apps
+        ORDER BY date DESC
         `
 
     );
@@ -73,6 +74,7 @@ exports.addHome = task => {
 exports.getHome = () => {
     return db.query(
         `SELECT * FROM home
+        ORDER BY date DESC
         `
 
     );

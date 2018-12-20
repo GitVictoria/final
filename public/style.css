@@ -1,7 +1,7 @@
 * {
     /* font-family: 'Major Mono Display', monospace; */
 font-family: 'Josefin Slab', serif;
-background-color: #F7F7F7
+
 }
 
 
@@ -9,9 +9,11 @@ background-color: #F7F7F7
 
 .vl {
     height: 900px;
-    width: 10px;
+    width: 1px;
     color: black;
     z-index: 100;
+    background-color: black;
+    margin-right: 10px;
 
 }
 
@@ -23,16 +25,23 @@ background-color: #F7F7F7
     height: 900px;
     width: 100%;
     display: inline-flex;
+    /* background-size: 150px; */
+    background: url('palm-tree.jpeg');
+    /* object-fit: cover; */
+
+    background-position: center;
+    background-repeat: repeat;
+    background-attachment: fixed;
 
 }
 
 .welcome-container {
     border-right: 1px;
     border-style: none double none none;
-
     text-align: center;
     width: 50%;
     height: 900px;
+    background-color: transparent;
 }
 
 .greeting{
@@ -55,7 +64,7 @@ span{
     /* border: 2px solid black; */
     width: 50%;
     height: 900px;
-
+    background-color: transparent;
 }
 
 .login-component-container {
@@ -136,9 +145,9 @@ button:hover {
 
 }
 
-center {
+/* center {
     background-color: transparent;
-}
+} */
 
 .form-control:hover {
     /* background-color: #C0B5B0; */
@@ -214,6 +223,7 @@ button:hover{
   top: 50%;
   left: 50%;
   border-radius: 10%;
+  background-color: #FCFEFB;
   transform: translate(-50%, -50%);
   border: 2px solid #9F9387;
   box-shadow: 0 0 15px 10px #C0B5B0;
@@ -254,18 +264,18 @@ button:hover{
 
 
 .idea-tab-container {
-    border: 2px solid pink;
     height: 700px;
+    margin-left:30px;
 }
 
 .idea-bank-container{
-    height: 500px;
+    /* height: 500px; */
     width: 750px;
-    border: 2px solid black;
 }
 
 .title-input{
-    border: 1px solid black;
+    border: none;
+    border-bottom: 1px solid black;
     font-size: 25px;
     margin-bottom: 0px;
     width: 100%;
@@ -273,7 +283,9 @@ button:hover{
 }
 
 .idea-input{
-    border: 1px solid black;
+    border: none;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
     font-size: 25px;
 
     margin-bottom: 0px;
@@ -281,10 +293,17 @@ button:hover{
     text-align: center;
 }
 
-.url-input{
-    border: 1px solid black;
-    font-size: 25px;
+textarea {
+    line-height: 25px;
+background-image: linear-gradient(transparent, transparent 24px, #383639 0px);
+background-size: 100% 25px;
+}
 
+.url-input{
+    border: none;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    font-size: 25px;
     margin-bottom: 0px;
     width: 100%;
     text-align: center;
@@ -293,22 +312,24 @@ button:hover{
 .image-input{
     margin-bottom: 0px;
     font-size: 25px;
-
-    width: 100%;
+    width: 700%;
     text-align: center;
 }
 
 .file-input {
-    border: 1px solid black;
+    border: none;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
     font-size: 25px;
-
     margin-bottom: 0px;
     width: 100%;
     text-align: center;
 }
 
 .submit-button {
-    border: 1px solid black;
+    border: none;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
     font-size: 25px;
     width: 100%;
     text-align: center;
@@ -401,7 +422,7 @@ button:hover{
 /* --------PROFILE  -------- */
 
 .nav-container {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     display: inline-flex;
     justify-content: space-around;
     width: 100%;
@@ -434,6 +455,10 @@ button:hover{
     height: 50px;
 }
 
+.link-button:hover{
+    outline: none;
+}
+
 .idea-bank {
     float: right;
     margin-right: 200px;
@@ -457,7 +482,7 @@ button:hover{
 .slide {
     height: 500px;
     width: 350px;
-    border: 1px solid black;
+    /* margin-right: 335px; */
     float: right;
     align-items: center;
 
@@ -470,6 +495,11 @@ button:hover{
     width: 100%;
     margin-top: 50px;
     margin-bottom: 50px;
+
+}
+
+.tab:hover {
+    box-shadow: 0 0 15px 10px #C0B5B0;
 
 }
 
@@ -486,10 +516,24 @@ button:hover{
 
 /* --------END OF TYPING CAROUSEL------- */
 
+.transcript-container {
+    width: 750px
+    overflow-wrap: break-word;
+    border: 1px solid #C0B5B0;
+
+}
+
+
 .transcript-span{
     border: 2px solid red;
     height: 300px;
     width: 400px;
+    overflow-wrap: break-word
+
+}
+
+.speech {
+    margin-top: 0px;
 }
 
 
@@ -530,30 +574,60 @@ text-align: center;
   }
 
   .finalTranscript {
+      margin-top: 50px;
 
-      margin-left: 50px;
+      /* margin-left: 50px; */
   }
 
   .finalTranscript-reset {
+      margin-top: 50px;
 
-      margin-left: 50px;
+      /* margin-left: 50px; */
   }
 
   .finalTranscript-start {
+      margin-top: 50px;
 
-      margin-left: 50px;
+      /* margin-left: 50px; */
   }
 
   .finalTranscript-stop {
-
-      margin-left: 50px;
+      margin-top: 50px;
+      /* margin-left: 50px; */
   }
+
+  /* .finalTranscript-stop:hover {
+      box-shadow: 0 0 15px 10px #C0B5B0;
+
+  }
+
+  .finalTranscript-reset:hover {
+      box-shadow: 0 0 15px 10px #C0B5B0;
+
+  }
+
+  .finalTranscript-start:hover {
+      box-shadow: 0 0 15px 10px #C0B5B0;
+
+  }
+
+  .finalTranscript:hover {
+      box-shadow: 0 0 15px 10px #C0B5B0;
+
+  } */
 
   .transcript-buttons{
-      display: inline-flex;
+      display: flex;
+      flex-direction: column;
       margin-left: 100px;
-      /* justify-content: space-between; */
+      /* border: 1px solid black; */
+      width: 100px;
+      float: right;
+      margin-right: -370px;
+     margin-top: -450px;
   }
+
+
 
   .icon {
       cursor: pointer;
@@ -562,6 +636,12 @@ text-align: center;
       border: 1px solid black;
   }
 
+  .icon:hover {
+      box-shadow: 0 0 15px 10px #C0B5B0;
+
+  }
+
   .the-x {
       float: right;
+      margin-right: 35px;
   }

@@ -26,6 +26,9 @@ export default class Ideas extends React.Component {
     }
 
 
+
+
+
     clearInput() {
         console.log("clear input is running");
         // this.setState({
@@ -99,9 +102,9 @@ export default class Ideas extends React.Component {
     render(){
         return(
             <div className='idea-tab-container'>
+                <h1 className='the-x'onClick={this.props.hideIdeas}>X</h1>
 
                 <div className='idea-bank-container'>
-                    <h1 className='the-x'onClick={this.props.hideIdeas}>X</h1>
                     <form onSubmit={this.handleSubmit}>
                         <h3>Jot those ideas down...</h3>
                         <textarea name='title' rows={1} type='text' placeholder='title' className='title-input' onChange={this.handleChange}/>
@@ -111,11 +114,11 @@ export default class Ideas extends React.Component {
                             <input className='file-input' name = 'file' onChange={ this.handleFile } type = "file" accept = "image/*"/>
                         </div>
 
+                        <div className='speech'>
+                            <Speech setFinalTranscript={this.setFinalTranscript}/>
+                        </div>
                         <button className="submit-button" onClick={this.handleSubmit}>Submit</button>
                     </form>
-                    <div>
-                        <Speech setFinalTranscript={this.setFinalTranscript}/>
-                    </div>
                 </div>
                 <div className='idea-bank'>
                     <button className='link-button'><Link className='link' to = '/idea-bank'>Review previous ideas</Link></button>

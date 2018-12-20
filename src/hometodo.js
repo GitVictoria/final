@@ -50,7 +50,7 @@ export default class HomeTodo extends React.Component {
         };
 
         this.setState((prevState) => ({
-            items: prevState.items.concat(newItem),
+            items:[newItem].concat(prevState.items),
             text: ""
         }));
 
@@ -88,7 +88,7 @@ export default class HomeTodo extends React.Component {
             <div className='todo-container'>
                 <center>
                     <h1 className='todoX'onClick={this.props.hideHomeTodo}>X</h1>
-                    <h3 className="todo-list-name">GROCERIES LIST</h3>
+                    <h3 className="todo-list-name">HOUSEHOLD LIST</h3>
                     <form className="row">
                         <div className='input-container'>
                             <div className="col-md-3">
@@ -99,20 +99,20 @@ export default class HomeTodo extends React.Component {
                             </div>
                         </div>
                     </form>
-                    <div className="row">
-                        <div className="col-md-3">
-                            <HomeList items={this.state.items} onItemCompleted={this.markItemCompleted} onDeleteItem={this.handleDeleteItem} />
-                        </div>
-                    </div>
                     <div>
                         {this.state.tasks && this.state.tasks.map(task => {
                             return (<div key={task.id}>
 
                                 {task.task}
-                            
+
                             </div>);
                         })}
 
+                    </div>
+                    <div className="row">
+                        <div className="col-md-3">
+                            <HomeList items={this.state.items} onItemCompleted={this.markItemCompleted} onDeleteItem={this.handleDeleteItem} />
+                        </div>
                     </div>
                 </center>
             </div>

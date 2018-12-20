@@ -47,17 +47,15 @@ export default class Slide extends React.Component {
             <div className='slide'>
                 <h1 onClick={this.props.hideSlide}>X</h1>
 
-                <div className='tab'>
-                    <h2>Accomplish Today</h2>
-                </div>
+
                 <div onClick={this.showTodo} className='tab'>
                     <h2>Appointments</h2>
                 </div>
+                <div onClick={this.showHomeTodo} className='tab'>
+                    <h2 >Household</h2>
+                </div>
                 <div className='tab'>
                     <h2>Emails</h2>
-                </div>
-                <div onClick={this.showHomeTodo} className='tab'>
-                    <h2>Household</h2>
                 </div>
 
 
@@ -73,3 +71,8 @@ export default class Slide extends React.Component {
         );
     }
 }
+
+//
+// <div className='tab'>
+//     <h2>Accomplish Today</h2>
+// </div>

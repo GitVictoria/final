@@ -48,7 +48,7 @@ export default class Todo extends React.Component {
         };
 
         this.setState((prevState) => ({
-            items: prevState.items.concat(newItem),
+            items: [newItem].concat(prevState.items),
             text: ""
         }));
 

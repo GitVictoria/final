@@ -21,6 +21,16 @@ const options = {
 
 class Speech extends Component {
 
+//
+// this.state = {
+//
+// }
+//
+// this.emptyTranscript = this.emptyTranscript.bind(this)
+//
+// emptyTranscript() {
+//
+// }
 
 
     render() {
@@ -41,7 +51,7 @@ class Speech extends Component {
                     <div className='finalTranscript-reset' onClick={resetTranscript}><img className='icon' src='reset.png'/></div>
                     <div className='finalTranscript-start'onClick={startListening}><img className='icon' src='record1.png'/></div>
                     <div className='finalTranscript-stop'onClick={stopListening}><img className='icon' src='mic.png'/></div>
-                    <div className='finalTranscript'onClick= { () => {this.props.setFinalTranscript(this.props.finalTranscript);}}><img className='icon' src='done.png'/></div>
+                    <div className='finalTranscript'onClick= { () => {this.props.setFinalTranscript(this.props.finalTranscript);}}><img onClick={e => this.props.emptyTranscript(this.props.transcript)} className='icon' src='done.png'/></div>
                 </div>
             </div>
         );
