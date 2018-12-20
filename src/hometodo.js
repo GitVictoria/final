@@ -1,6 +1,7 @@
 import React from 'react';
 import HomeList from './homelist';
 import axios from './axios';
+import Moment from 'react-moment';
 
 
 
@@ -86,6 +87,7 @@ export default class HomeTodo extends React.Component {
         return (
             <div className='todo-container'>
                 <center>
+                    <h1 className='todoX'onClick={this.props.hideHomeTodo}>X</h1>
                     <h3 className="todo-list-name">GROCERIES LIST</h3>
                     <form className="row">
                         <div className='input-container'>
@@ -100,14 +102,14 @@ export default class HomeTodo extends React.Component {
                     <div className="row">
                         <div className="col-md-3">
                             <HomeList items={this.state.items} onItemCompleted={this.markItemCompleted} onDeleteItem={this.handleDeleteItem} />
-                            <h1 onClick={this.props.hideHomeTodo}>X</h1>
                         </div>
                     </div>
                     <div>
                         {this.state.tasks && this.state.tasks.map(task => {
                             return (<div key={task.id}>
 
-                                {task.task} !
+                                {task.task}
+                            
                             </div>);
                         })}
 

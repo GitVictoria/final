@@ -86,7 +86,7 @@ export default class Todo extends React.Component {
             <div className='todo-container'>
                 <h1 className='todoX'onClick={this.props.hideTodo}>X</h1>
 
-                <center>
+                <center     >
                     <h3 className="todo-list-name">APPOINTMENTS LIST</h3>
                     <form className="row">
                         <div className='input-container'>

@@ -1,6 +1,7 @@
 import React from 'react';
 import HomeItem from './homeitem';
 import axios from './axios';
+import Moment from 'react-moment';
 
 
 
@@ -20,11 +21,20 @@ export default class HomeList extends React.Component {
 
     render() {
         return (
-            <ul className="todolist">
+
+            <div className="todolist">
                 {this.props.items && this.props.items.map(item => (
-                    <HomeItem key={item.id} id={item.id} text={item.task || item.text} completed={item.done} onItemCompleted={this.props.onItemCompleted} onDeleteItem={this.props.onDeleteItem} />
+                    <div key={item.id}>
+                        <div className='item-date'>
+
+                            <HomeItem  id={item.id} text={item.task || item.text} completed={item.done} onItemCompleted={this.props.onItemCompleted} onDeleteItem={this.props.onDeleteItem} />
+
+                            <Moment fromNow>{item.date}</Moment>
+                        </div>
+                    </div>
                 ))}
-            </ul>
+            </div>
+
         );
     }
 }

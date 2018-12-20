@@ -122,7 +122,7 @@ button:hover {
 
 /* -------- TODO  -------- */
 .todo-list-name {
-
+ width: 90%;
 }
 
 .form-control {
@@ -131,8 +131,13 @@ button:hover {
     border-radius: 40px;
     border: 1px solid #383639;
     font-size: 20px;
+    margin-bottom: 20px;
 
 
+}
+
+center {
+    background-color: transparent;
 }
 
 .form-control:hover {
@@ -146,21 +151,16 @@ button:hover {
 }
 
 #form-check-input {
-
+    border-radius: 40px;
 
 }
 
-
-
-input[type="checkbox"] {
-    width: 40px;
-    height: 40px;
-    border-radius:50px;
+#form-check-input:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0);
 
 }
 
 input:hover {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0);
 }
 
 .todolist{
@@ -172,7 +172,8 @@ input:hover {
 }
 
 .todoX {
-    margin-left: 20px;
+    float: right;
+    margin-right: 30px
 }
 
 
@@ -219,6 +220,30 @@ button:hover{
 }
 
 
+
+
+.item-date {
+  overflow-wrap: break-word;
+    border-bottom: 1px solid pink;
+   justify-content: space-between;
+    min-height: 30px;
+    width: 450px;
+    display: inline-flex;
+    margin-bottom: 15px;
+
+}
+
+.moment-todolist{
+        margin-right: 20px;
+}
+
+.form-check-label {
+    border-radius: 40px;
+}
+
+.item-date:hover {
+    box-shadow: 0 0 15px 10px #C0B5B0;
+}
 
 /* -------- END OF TODO  -------- */
 

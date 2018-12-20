@@ -42,11 +42,11 @@ export default class HomeItem extends React.Component {
         return (
             <div>
                 <center>
-                    <li className={itemClass} ref={li => this._listItem = li }>
+                    <div className={itemClass} ref={li => this._listItem = li }>
                         <label className="form-check-label">
                             <input type="checkbox" className="form-check-input"  onChange={this.deleteItem}/> {this.props.text}
                         </label>
-                    </li>
+                    </div>
                 </center>
             </div>
         );
