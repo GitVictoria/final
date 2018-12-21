@@ -45,7 +45,7 @@ export default class App extends React.Component {
                             exact path = '/speech'
                             component = {Speech}/>
 
-                
+
                     </div>
 
                 </BrowserRouter>

@@ -63,7 +63,15 @@ export default class Ideas extends React.Component {
         axios.post('/insertidea', formData)
             .then(resp => {
                 console.log("resp in axios post /insertidea: ", resp);
-            }).catch(err => {
+            }).then(
+                this.setState({
+                    title: '',
+                    idea: '',
+                    url: '',
+                    file: ''
+                })
+
+            ).catch(err => {
                 console.log(err);
             });
     }
@@ -111,7 +119,7 @@ export default class Ideas extends React.Component {
                         <textarea  value={this.state.idea} name='idea' rows={10} type='text' placeholder='Idea'  className="idea-input" onChange={this.handleChange}/>
                         <textarea name='url' rows={1} type='text' placeholder='URL to inspo' className='url-input' onChange={this.handleChange}/>
                         <div>
-                            <input className='file-input' name = 'file' onChange={ this.handleFile } type = "file" accept = "image/*"/>
+                            <input className='file-input' name = 'file' onChange={ this.handleFile } type = "file" accept = "image/*" />
                         </div>
 
                         <div className='speech'>

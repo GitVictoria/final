@@ -1,6 +1,7 @@
 * {
     /* font-family: 'Major Mono Display', monospace; */
 font-family: 'Josefin Slab', serif;
+background-color:
 
 }
 
@@ -24,7 +25,7 @@ font-family: 'Josefin Slab', serif;
 .welcome-container-wrapper {
     height: 900px;
     width: 100%;
-    display: inline-flex;
+    display: flex;
     /* background-size: 150px; */
     background: url('palm-tree.jpeg');
     /* object-fit: cover; */
@@ -45,8 +46,15 @@ font-family: 'Josefin Slab', serif;
 }
 
 .greeting{
-    margin-bottom: 50px;
+    margin-bottom
+    : 50px;
     font-size: 50px;
+    background-color: #ffffffd1;
+}
+
+.login-container {
+    border: 3px solid black;
+
 }
 
 span{
@@ -54,7 +62,8 @@ span{
 }
 
 .span-wrapper {
-    font-size: 40px
+    font-size: 40px;
+    background-color: #ffffffd1;
 }
 /* -------- END OF WELCOME  -------- */
 
@@ -63,12 +72,18 @@ span{
 .login-container {
     /* border: 2px solid black; */
     width: 50%;
-    height: 900px;
+    height: 500px;
     background-color: transparent;
+    border: 3px solid black;
+    /* overflow: hidden; */
+
 }
 
 .login-component-container {
     margin-top: 100px;
+    background-position: center;
+
+
 }
 
 .login-input {
@@ -80,12 +95,14 @@ span{
     font-size: 20px;
     height: 30px;
     text-align: center;
-    background-color: none;
+    background-color: #ffffffd1;;
 }
 
-input:focus {
+
+
+/* input:focus {
     background-color: #E3EBEF
-}
+} */
 
 .login-button {
     width: 200px;
@@ -95,6 +112,7 @@ input:focus {
 
 .login-statement {
     margin-bottom: 100px;
+    background-color: #ffffffd1;
 }
 
 
@@ -277,9 +295,10 @@ button:hover{
     border: none;
     border-bottom: 1px solid black;
     font-size: 25px;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
     width: 100%;
     text-align: center;
+
 }
 
 .idea-input{
@@ -353,7 +372,7 @@ background-size: 100% 25px;
 /* --------END OF IDEA BANK -------- */
 
 .idea-description-box {
-    border: 2px solid pink;
+    /* border: 2px solid pink; */
     margin-left: 100px;
     width: 100%;
 
@@ -371,10 +390,17 @@ background-size: 100% 25px;
 
 
 .idea-box {
-    border: 1px solid red;
+    border: none;
+    border-bottom: 1px solid black;
     margin-bottom: 20px;
     display: inline-flex;
     width: 100%;
+}
+
+.idea-box:hover{
+    box-shadow: 0 0 15px 10px #C0B5B0;
+
+
 }
 
 .idea-pic {
@@ -384,6 +410,12 @@ background-size: 100% 25px;
     padding: 5px;
     height: 250px;
     width: 300px;
+    margin-top: 0px;
+    margin-left: -20px;
+}
+
+.typing-carousel-container {
+    background-color: white;
 }
 
 .card {
@@ -394,7 +426,7 @@ background-size: 100% 25px;
     border: 1px solid #847577;
     width: 350px;
     /* border-radius: 5%; */
-    /* background: #fbfbf2; */
+    background: #fbfbf2;
     background: none;
     margin-top: 50px;
     margin-left: 100px;
@@ -403,7 +435,8 @@ background-size: 100% 25px;
 .idea-container {
     width: 100%;
     height: 900px;
-    border: 2px solid blue;
+    border: none;
+    border-bottom: 1px solid black;
 }
 
 
@@ -421,18 +454,38 @@ background-size: 100% 25px;
 
 /* --------PROFILE  -------- */
 
+.render {
+    margin-top: 200px;
+    z-index: 0;
+}
+
+.profile {
+    /* background: url('mountains.jpeg'); */
+    background-size: contain;
+    background-color: #FCFEFB;
+    /* background-color: white; */
+}
+
 .nav-container {
     /* border: 1px solid black; */
     display: inline-flex;
+    border: none;
+    /* border-bottom: 1px solid black; */
     justify-content: space-around;
     width: 100%;
     height: 100px;
+    background-color: #FCFEFB;
+    /* background: url('paint.jpeg') */
 }
 
 .nav-tab {
 
     margin-top: 30px;
     font-size: 40px;
+}
+
+.nav-tab:hover {
+    border-bottom: 1px solid black;
 
 
 }
@@ -466,6 +519,13 @@ background-size: 100% 25px;
 
 .redirect-page{
     border: none;
+    font-size: 17px;
+}
+
+.redirect-page:hover {
+    /* text-decoration: underline; */
+    /* box-shadow: 0 0 15px 10px #C0B5B0; */
+
 }
 
 /* -------- END OF PROFILE -------- */
@@ -485,6 +545,7 @@ background-size: 100% 25px;
     /* margin-right: 335px; */
     float: right;
     align-items: center;
+    /* background: url('slide-back.jpg') */
 
 
 }
@@ -645,3 +706,44 @@ text-align: center;
       float: right;
       margin-right: 35px;
   }
+
+  .front-div {
+      /* border: 1px solid black; */
+      width: 100%;
+      /* text-align: center; */
+      margin-top: 150px;
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: url('palms1.jpeg');
+      /* align-items: center; */
+  }
+
+  .front-text {
+      vertical-align: middle;
+      text-align: center;
+      /* border: 1px solid black; */
+      background-color: #ffffffd1;
+      height: 50px;
+      font-size: 50px;
+  }
+
+  .front-text-2 {
+      vertical-align: middle;
+      text-align: center;
+      /* border: 1px solid black; */
+      background-color: #ffffffd1;
+      height: 50px;
+      font-size: 50px;
+  }
+
+
+    .front-text-3 {
+        /* text-align: right; */
+        text-align: center;
+        /* border: 1px solid black; */
+        background-color: #ffffffd1;
+        height: 50px;
+        font-size: 50px;
+    }

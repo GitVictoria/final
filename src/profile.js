@@ -14,7 +14,8 @@ export default class Profile extends React.Component {
         this.state = {
             slideVisible: false,
             ideaBankVisible: false,
-            calendarVisible: false
+            calendarVisible: false,
+            frontVisible: true
             // todoVisible: false
 
         };
@@ -25,41 +26,58 @@ export default class Profile extends React.Component {
         this.hideIdeas = this.hideIdeas.bind(this);
         this.showCalendar = this.showCalendar.bind(this);
         this.hideCalendar = this.hideCalendar.bind(this);
+        this.hideFront = this.hideFront.bind(this);
+    }
+
+
+
+
+    /////// MAYBE DELETE
+    hideFront() {
+        this.setState({
+            frontVisible: false
+        });
     }
 
     showSlide() {
         this.setState({
-            slideVisible: true
+            slideVisible: true,
+            frontVisible: false
         });
     }
 
     hideSlide() {
         this.setState({
-            slideVisible: false
+            slideVisible: false,
+            frontVisible: true
         });
     }
 
     showIdeas() {
         this.setState({
-            ideaBankVisible: true
+            ideaBankVisible: true,
+            frontVisible: false
         });
     }
 
     hideIdeas() {
         this.setState({
-            ideaBankVisible: false
+            ideaBankVisible: false,
+            frontVisible: true
         });
     }
 
     showCalendar() {
         this.setState({
-            calendarVisible: true
+            calendarVisible: true,
+            frontVisible: false
         });
     }
 
     hideCalendar() {
         this.setState({
-            calendarVisible: false
+            calendarVisible: false,
+            frontVisible: true
         });
     }
 
@@ -67,7 +85,7 @@ export default class Profile extends React.Component {
 
     render() {
         return(
-            <div>
+            <div className='profile'>
                 <div className = 'nav-container'>
 
                     <div className='nav-tab'>
@@ -91,8 +109,16 @@ export default class Profile extends React.Component {
                     </div>
 
                     <div className='nav-tab'>
-                        <button className="redirect-page"><Link className='link' to = '/#/'>LOG-OUT</Link></button>
+                        <button  className="redirect-page"><Link className='link' to = '/#/'>LOG-OUT</Link></button>
                     </div>
+                </div>
+                <div> {this.state.frontVisible &&
+                <div className='front-div'>
+                    <h1 className='front-text'>The only thing</h1>
+                    <h1 className='front-text-2'>      More precious than your time,</h1>
+                    <h1 className='front-text-3'>            Is who you spend it with.</h1>
+
+                </div>}
                 </div>
                 <div>
                     {this.state.slideVisible && <Slide hideSlide={this.hideSlide}/>}
@@ -109,3 +135,7 @@ export default class Profile extends React.Component {
         );
     }
 }
+//
+// <div>
+//     <img className='render'src='blackwhiteleaves.jpg'/>
+// </div>

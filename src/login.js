@@ -42,24 +42,26 @@ export default class Login extends React.Component {
 
     render () {
         return(
-            <div>
-                <center>
-                    <h1 className='login-statement'>Please log-in to continue</h1>
-                    <form onSubmit={this.handleSubmit}>
+            <div >
+                <center >
+                    <div className='login-container'>
+                        <h1 className='login-statement'>Please log-in to continue</h1>
+                        <form onSubmit={this.handleSubmit}>
 
-                        <div className="user-authentication">
-                            <input className='login-input' onChange = {this.handleChange} type="text" name="first" placeholder="User Name"/>
-                        </div>
+                            <div className="user-authentication">
+                                <input className='login-input' onChange = {this.handleChange} type="text" name="first" placeholder="User Name"/>
+                            </div>
 
-                        <div className="user-authentication">
-                            <input className='login-input' onChange = {this.handleChange} type="password" name="password" placeholder="Password"/>
-                        </div>
+                            <div className="user-authentication">
+                                <input className='login-input' onChange = {this.handleChange} type="password" name="password" placeholder="Password"/>
+                            </div>
 
-                        <div className="user-authentication">
-                            <button className='login-button' onClick={this.handleSubmit} name="button">Submit</button>
-                        </div>
+                            <div className="user-authentication">
+                                <button className='login-button' onClick={this.handleSubmit} name="button">Submit</button>
+                            </div>
 
-                    </form>
+                        </form>
+                    </div>
                 </center>
             </div>
         );
