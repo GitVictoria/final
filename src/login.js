@@ -49,7 +49,7 @@ export default class Login extends React.Component {
                         <form onSubmit={this.handleSubmit}>
 
                             <div className="user-authentication">
-                                <input className='login-input' onChange = {this.handleChange} type="text" name="first" placeholder="User Name"/>
+                                <input autoComplete="off" className='login-input' onChange = {this.handleChange} type="text" name="first" placeholder="User Name"/>
                             </div>
 
                             <div className="user-authentication">

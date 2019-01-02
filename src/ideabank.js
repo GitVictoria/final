@@ -26,6 +26,9 @@ export default class IdeaBank extends React.Component {
         return(
 
             <div className='idea-container'>
+                <div className='back-button'>
+                    <button  className="back-button"><Link className='link' to = '/profile'>Go Back</Link></button>
+                </div>
                 <center>
                     <h1>Have a look at your previous ideas</h1>
                 </center>

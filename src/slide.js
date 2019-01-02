@@ -44,29 +44,31 @@ export default class Slide extends React.Component {
 
     render() {
         return(
-            <div className='slide'>
-                <h1 onClick={this.props.hideSlide}>X</h1>
+            <div className='slide-div-container'>
+                <div className='slide'>
+                    <h1 onClick={this.props.hideSlide}>X</h1>
 
 
-                <div onClick={this.showTodo} className='tab'>
-                    <h2>Appointments</h2>
+                    <div onClick={this.showTodo} className='tab'>
+                        <h2>To Do</h2>
+                    </div>
+                    <div onClick={this.showHomeTodo} className='tab'>
+                        <h2 >Household</h2>
+                    </div>
+                    <div className='tab'>
+                        <h2>Emails</h2>
+                    </div>
+
+
+                    <div>
+                        {this.state.todoVisible && <Todo hideTodo={this.hideTodo}/>}
+
+                    </div>
+
+                    {this.state.homeTodoVisible && <HomeTodo hideHomeTodo={this.hideHomeTodo}/>}
+
+
                 </div>
-                <div onClick={this.showHomeTodo} className='tab'>
-                    <h2 >Household</h2>
-                </div>
-                <div className='tab'>
-                    <h2>Emails</h2>
-                </div>
-
-
-                <div>
-                    {this.state.todoVisible && <Todo hideTodo={this.hideTodo}/>}
-
-                </div>
-
-                {this.state.homeTodoVisible && <HomeTodo hideHomeTodo={this.hideHomeTodo}/>}
-
-
             </div>
         );
     }

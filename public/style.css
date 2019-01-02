@@ -23,11 +23,12 @@ background-color:
 }
 
 .welcome-container-wrapper {
-    height: 900px;
+    height: 950px;
     width: 100%;
     display: flex;
     /* background-size: 150px; */
     background: url('palm-tree.jpeg');
+    /* background-repeat: no-repeat; */
     /* object-fit: cover; */
 
     background-position: center;
@@ -241,10 +242,11 @@ button:hover{
   top: 50%;
   left: 50%;
   border-radius: 10%;
-  background-color: #FCFEFB;
+  background-color: #fcfefbf2;
   transform: translate(-50%, -50%);
   border: 2px solid #9F9387;
   box-shadow: 0 0 15px 10px #C0B5B0;
+  cursor: pointer;
 }
 
 
@@ -546,8 +548,15 @@ background-size: 100% 25px;
     float: right;
     align-items: center;
     /* background: url('slide-back.jpg') */
+    background-color: #ffffff6b
 
 
+}
+.slide-div-container{
+/* border: 1px solid red; */
+background-color: blue;
+height: 800px;
+background: url('pexels-photo-1211611.jpeg')
 }
 
 .tab {
@@ -556,7 +565,7 @@ background-size: 100% 25px;
     width: 100%;
     margin-top: 50px;
     margin-bottom: 50px;
-
+background-color: #ffffffbf;
 }
 
 .tab:hover {
@@ -746,4 +755,15 @@ text-align: center;
         background-color: #ffffffd1;
         height: 50px;
         font-size: 50px;
+    }
+
+    .back-button {
+        border: 1px solid black;
+        background-color: #ffffffd1;
+        width: 100px;
+    }
+
+    .back-button:hover {
+        box-shadow: 0 0 15px 10px #C0B5B0;
+
     }
